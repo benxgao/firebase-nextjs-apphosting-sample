@@ -1,0 +1,46 @@
+# Settings for Backend (on Cloud Run).
+# See https://firebase.google.com/docs/app-hosting/configure#cloud-run
+runConfig:
+  minInstances: 0
+  maxInstances: 10
+  concurrency: 50
+  cpu: 1
+  memoryMiB: 512
+
+env:
+  # - variable: NODE_ENV
+  #   value: production
+
+  - variable: GOOGLE_APPLICATION_CREDENTIALS
+    secret: GCP_CREDENTIALS_JSON # secret
+
+  - variable: JOSE_JWT_SECRET
+    secret: JOSE_JWT_SECRET # secret
+
+  - variable: NEXT_PUBLIC_FIREBASE_BACKEND_URL # for sending requests to the backend api
+    secret: NEXT_PUBLIC_FIREBASE_BACKEND_URL # secret
+
+  - variable: NEXT_PUBLIC_SERVER_API_URL
+    value: https://us-central1-[firebase-project-id].cloudfunctions.net/endpoints
+
+  # Firebase
+  # See https://firebase.google.com/docs/app-hosting/configure#environment_variables
+  # for more information on how to set up environment variables
+
+  - variable: NEXT_PUBLIC_FIREBASE_API_KEY
+    value: NEXT_PUBLIC_FIREBASE_API_KEY
+
+  - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+    value: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+
+  - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+    value: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+
+  - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+    value: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+
+  - variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+    value: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+
+  - variable: NEXT_PUBLIC_FIREBASE_APP_ID
+    value: NEXT_PUBLIC_FIREBASE_APP_ID
